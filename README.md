@@ -81,7 +81,7 @@ pip install selenium pytest
 <br>
 ❗ Nota Importante
 
-En la consigna se sugiere el uso de Playwright, pero dado que mi experiencia es con Selenium, elegí utilizarlo para completar la prueba.
+En la consigna se sugirió el uso de Playwright, pero dado que mi experiencia es con Selenium, elegí utilizarlo para completar la prueba.
 
 <br>
 📌 Autor: Jorge Peyrano
