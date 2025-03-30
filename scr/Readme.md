@@ -1,63 +1,89 @@
-Este programa automatiza la búsqueda de películas en IMDB, extrayendo información como el título, el ranking y los géneros.
+Automatización de Búsqueda en IMDb para BairesQA
 
-## Descripción del Proceso
+Este proyecto es una automatización de la búsqueda de películas en IMDb como parte de una prueba técnica para BairesQA. Utiliza Selenium y pytest para interactuar con el sitio web y extraer información relevante de las películas.
 
-1.  **Extracción del ZIP:** Descomprime el archivo ZIP que contiene los archivos del programa.
-2.  **Navegación:** El script abre un navegador Chrome y navega a la página principal de IMDB.
-3.  **Búsqueda:** Se ingresa el nombre de una película a través de la interfaz de usuario, y el script realiza la búsqueda en el sitio.La búsqueda de la película se realiza utilizando la función texto_id() dentro de la clase FuncionesGlobales, ubicada en el archivo Funciones.py. Esta misma función es utilizada en ambos tests para garantizar modularidad y evitar duplicación de código.
-4.  **Extracción de Datos:**
-    * Se extrae el título de la película del primer resultado de la búsqueda.
-    * Se hace clic en el primer resultado para acceder a la página de la película.
-    * Se extrae el ranking de IMDB y los géneros de la película utilizando datos JSON-LD presentes en la página.
-5.  **Guardado de Resultados:** Los datos extraídos se guardan en archivos de texto (`resultado_test1.txt` y `resultado_test2.txt`).
+<br>
+📝 Descripción del Proyecto
 
-## Instrucciones de Ejecución
+El programa automatiza la búsqueda de películas en IMDb, extrayendo y guardando información como:
 
-1.  **Descomprimir el ZIP:** Extrae los archivos del archivo ZIP a una carpeta en tu sistema.
-2.  **Instalar Python:** Asegúrate de tener Python 3.11.2 instalado en tu sistema. Puedes descargarlo desde [https://www.python.org/downloads/](https://www.python.org/downloads/). Durante la instalación, asegúrate de marcar la casilla "Add Python to PATH" para que Python sea accesible desde la línea de comandos.
-3.  **Instalar dependencias:** Abre una ventana de comandos (CMD) y ejecuta el siguiente comando para instalar las dependencias necesarias:
+✅ Título
 
-    ```bash
-    pip install selenium pytest
-    ```
+✅ Ranking en IMDb
 
-4.  **Descargar ChromeDriver:**
-    * Asegúrate de tener la versión de Google Chrome: 134.0.6998.119 (Build oficial) (64 bits) (cohort: Control).
-    * Ve a [https://chromedriver.chromium.org/downloads](https://chromedriver.chromium.org/downloads) y descarga el ChromeDriver que coincida con esta versión de Chrome.
-    * Coloca el ejecutable de ChromeDriver en un directorio incluido en tu PATH, o especifica la ruta al ejecutable en el código.
-5.  **Ejecutar las pruebas:** Abre una ventana de comandos (CMD), navega al directorio donde descomprimiste los archivos y ejecuta el siguiente comando:
+✅ Géneros
 
-    ```bash
-    pytest Test_1.py -s
-    ```
+<br>
+🔍 Proceso de Automatización
 
-    * El flag `-s` es necesario para permitir la entrada de datos a través de `input()`.
+1. Descompresión del ZIP: Extrae los archivos en una carpeta local.
 
-## Dependencias
+2. Navegación: Se abre un navegador Chrome y se accede a IMDb.
 
-* `selenium`: Para la automatización del navegador.
-* `pytest`: Para la ejecución de pruebas.
-* `ChromeDriver`: Para controlar el navegador Chrome (versión 134.0.6998.119).
+3. Búsqueda de película:
 
-## Consideraciones importantes
+     ✅ Se ingresa el nombre de una película.
 
-* **Rutas de archivo:** El script `ejecucion.bat` contiene rutas de archivo específicas de mi sistema. Es posible que debas modificar estas rutas para que coincidan con la ubicación de tus archivos.
-* **Variables de entorno:** Asegúrate de que las rutas de Python y ChromeDriver estén incluidas en tu variable de entorno `PATH`.
-* **Limitaciones de portabilidad:** Este script depende de Python, `pytest` y ChromeDriver, que deben estar instalados en el sistema donde se ejecuta. Debido a estas dependencias externas y las diferencias en los sistemas operativos, la portabilidad completa del script puede ser difícil.
-* **Posibles problemas:** Si tienes problemas para ejecutar el script, asegúrate de haber seguido todos los pasos de instalación correctamente y de que las rutas de archivo y las variables de entorno estén configuradas correctamente.
+     ✅ La búsqueda se realiza mediante la función texto_id() dentro de la clase FuncionesGlobales en el archivo Funciones.py.
 
-Modificación del script ejecucion.bat
-El archivo ejecucion.bat contiene rutas específicas de mi sistema. Para adaptarlo a otro entorno, el usuario debe:
+4. Extracción de datos:
 
-Asegurarse de que Python y ChromeDriver estén correctamente instalados.
+     ✅ Se obtiene el título de la primera película en los resultados.
 
-Modificar la ruta a Python si es necesario. Para verificar la ruta en Windows, ejecutar en la terminal:
+     ✅ Se accede a la página de la película para extraer su ranking y géneros desde datos JSON-LD.
 
-```bash
-where Python
-```
-Si ChromeDriver no está en el PATH, modificar la línea donde se especifica su ubicación.
+5. Guardado de resultados: Se almacenan en archivos resultado_test1.txt y resultado_test2.txt.
 
-Si se desea ejecutar desde otro directorio, cambiar la ruta del archivo de prueba (Test_1.py).
+<br>
+🚀 Instrucciones de Instalación y Ejecución
 
-Nota: En la consigna se menciona que se prefiere Playwright, pero dado que mi experiencia es con Selenium, elegí utilizarlo para completar el ejercicio.
+📌 Requisitos Previos
+
+✅ Python 3.11.2 (Descargar desde aquí). Asegúrate de marcar la opción "Add Python to PATH".
+
+✅ Google Chrome (Versión 134.0.6998.119)
+
+✅ ChromeDriver correspondiente a la versión de Chrome (Descargar desde aquí).
+
+<br>
+📥 Instalación
+
+1. Instalar las dependencias ejecutando en la terminal:
+
+pip install selenium pytest
+
+2. Descargar ChromeDriver y colocarlo en un directorio dentro del PATH o especificar su ubicación en el código.
+
+<br>
+▶️ Ejecución de las Pruebas
+
+✅ Abrir una terminal y navegar hasta la carpeta del proyecto.
+
+✅ Ejecutar el siguiente comando:
+
+      pytest Test_1.py -s
+
+      El flag -s permite la entrada de datos mediante input().
+
+<br>
+📌 Consideraciones
+
+✅ Rutas de archivo: El script ejecucion.bat contiene rutas específicas que pueden necesitar ajustes según el sistema del usuario.
+
+✅ Variables de entorno: Asegurar que las rutas de Python y ChromeDriver estén en PATH.
+
+✅ Posibles problemas:
+
+✅ Verificar que todas las dependencias estén correctamente instaladas.
+
+✅ Confirmar que las rutas y variables de entorno estén bien configuradas.
+
+<br>
+❗ Nota Importante
+
+En la consigna se sugiere el uso de Playwright, pero dado que mi experiencia es con Selenium, elegí utilizarlo para completar la prueba.
+
+<br>
+📌 Autor: Jorge Peyrano
+<br>
+📅 Prueba Técnica para BairesQA
